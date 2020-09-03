@@ -1,0 +1,9 @@
+FROM node:alpine
+# note that this is a directory within the virtualized docker (linux) env
+WORKDIR /app
+COPY package*.json ./
+RUN yarn install
+COPY . /app
+EXPOSE 8081
+# you can just do a straight substitute of npm for yarn in FiServ
+CMD ["yarn", "run", "serve"]
