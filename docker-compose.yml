@@ -1,0 +1,18 @@
+version: "3"
+services:
+    react:
+        image: "morant/immuno-react:version1"
+        container_name: immuno-react
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./frontend-react:/app
+    vue:
+        image: "morant/immuno-vue:version2"
+        container_name: immuno-vue
+        ports:
+            - "8081:8081"
+        volumes:
+            - ./landing-page-vue:/app
+        environment:
+            - CHOKIDAR_USEPOLLING=true
